@@ -1,0 +1,10 @@
+---
+applications:
+- name: mongo-demo
+  memory: 512M
+  instances: 1
+  random-route: true
+  buildpack: nodejs_buildpack
+  command: npm start
+  env: 
+    MONGO_URL: mongodb://test:test1234@ds018538.mlab.com:18538/mongodemo
