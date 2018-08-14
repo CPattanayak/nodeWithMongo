@@ -10,6 +10,8 @@ var app = express();
 const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const HOST = '0.0.0.0';
 // swagger definition
 var swaggerDefinition = {
   info: {
@@ -17,7 +19,7 @@ var swaggerDefinition = {
     version: '1.0.0',
     description: 'Demonstrating how to describe a RESTful API with Swagger',
   },
- host: 'localhost:3000',
+ host: `${HOST}:${port}`,
   basePath: '/',
 };
 
@@ -40,7 +42,7 @@ app.get('/swagger.json', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   res.send(swaggerSpec);
 });
-app.listen(port, () => {
+app.listen(port,HOST, () => {
   console.log(`Started on port ${port}`);
 });
 
