@@ -9,7 +9,11 @@ var router = express.Router();
  * definitions:
  *   Todo:
  *     properties:
- *       name:
+ *       text:
+ *         type: string
+ *       completed:
+ *         type: boolean
+ *       completedAt:
  *         type: string
  */
 
@@ -175,18 +179,5 @@ router.post('/', (req, res) => {
       res.status(400).send();
     });
   });
-/**
- * @swagger
- * definitions:
- *   Todo:
- *     properties:
- *       name:
- *         type: string
- *       breed:
- *         type: string
- *       age:
- *         type: integer
- *       sex:
- *         type: string
- */
+
   module.exports.router = router;
