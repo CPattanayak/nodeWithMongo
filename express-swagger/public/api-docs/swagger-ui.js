@@ -4629,7 +4629,7 @@ Operation.prototype.help = function (dontPrint) {
 
 Operation.prototype.getModelSignature = function (type, definitions) {
   var isPrimitive, listType;
-
+  //console.info('type',type);
   if (type instanceof Array) {
     listType = true;
     type = type[0];
@@ -21231,7 +21231,7 @@ SwaggerUi.partials.signature = (function () {
       models = arguments[1];
       modelPropertyMacro = arguments[2];
     }
-
+    //console.info('model',models);
     models = models || {};
 
     // Resolve the schema (Handle nested schemas)
@@ -21245,6 +21245,7 @@ SwaggerUi.partials.signature = (function () {
     // Dereference $ref from 'models'
     if(typeof schema.$ref === 'string') {
       name = simpleRef(schema.$ref);
+	  //console.info('name',name);
       schema = models[name];
       if(typeof schema === 'undefined')
       {

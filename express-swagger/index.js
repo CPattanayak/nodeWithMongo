@@ -28,7 +28,7 @@ var options = {
   // import swaggerDefinitions
   swaggerDefinition: swaggerDefinition,
   // path to the API docs
-  apis: ['./controller/*.js'],
+  apis: ['./models/*.js','./controller/*.js'],
 };
 
 // initialize swagger-jsdoc

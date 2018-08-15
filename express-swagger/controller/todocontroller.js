@@ -4,19 +4,6 @@ var _=require('lodash')
 var {Todo} = require('./../models/todo');
 var {ObjectID} = require('mongodb');
 var router = express.Router();
-/**
- * @swaggar
- * definitions:
- *   Todo:
- *     properties:
- *       text:
- *         type: string
- *       completed:
- *         type: boolean
- *       completedAt:
- *         type: string
- */
-
 
 /**
  * @swagger
@@ -28,17 +15,17 @@ var router = express.Router();
  *     produces:
  *       - application/json
  *     parameters:
- *       - name: todo
+ *       - name: todoInput
  *         description: Todo object
  *         in: body
  *         required: true
  *         schema:
- *           $ref: '#/definitions/Todo'
+ *           $ref: "#/definitions/Todo"
  *         
  *     responses:
  *       200:
  *         description: Successfully created
- * 
+ 
  */
 router.post('/', (req, res) => {
     var todo = new Todo({
@@ -68,10 +55,11 @@ router.post('/', (req, res) => {
  *         in: path
  *         required: true
  *         type: string
- *       - name: todo
+ *       - name: todoInput
  *         description: Todo object
  *         in: body
  *         required: true
+ *         type: object
  *         schema:
  *           $ref: '#/definitions/Todo'
  * 
