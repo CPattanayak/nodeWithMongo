@@ -7,6 +7,8 @@ var todoRouter=require('./controller/todocontroller');
 var userRoute=require('./controller/usercontroller');
 var swaggerJSDoc = require('swagger-jsdoc');
 var app = express();
+var os = require('os');
+var hostname = os.hostname();
 const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -19,7 +21,7 @@ var swaggerDefinition = {
     version: '1.0.0',
     description: 'Demonstrating how to describe a RESTful API with Swagger',
   },
- host: `${HOST}:${port}`,
+ host: `${hostname}:${port}`,
   basePath: '/',
 };
 
