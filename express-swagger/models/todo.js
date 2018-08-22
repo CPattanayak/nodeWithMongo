@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var JM = require('json-mapper');
+
 /**
  * @swagger
  * definition:
@@ -28,4 +30,21 @@ var Todo = mongoose.model('Todo', {
   }
 });
 
-module.exports = {Todo};
+var DetailConverter=JM.makeConverter({
+  TodoName: 'text',
+  TodoStatus: 'completed',
+  TodoComplietedTime: 'completedAt',
+  Pk: '_id'
+
+});
+
+var ListConverter = JM.makeConverter({
+  todos: ['todos', JM.map({
+                            TodoName: 'text',
+                            TodoStatus: 'completed',
+                            TodoComplietedTime: 'completedAt',
+                            Pk: '_id'
+                          })
+         ]
+});
+module.exports = {Todo,DetailConverter,ListConverter};

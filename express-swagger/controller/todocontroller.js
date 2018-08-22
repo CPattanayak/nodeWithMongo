@@ -1,7 +1,7 @@
 
 var express = require('express');
 var _=require('lodash')
-var {Todo} = require('./../models/todo');
+var {Todo,DetailConverter} = require('./../models/todo');
 var {ObjectID} = require('mongodb');
 var router = express.Router();
 
@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
     });
   
     todo.save().then((doc) => {
-      res.send(doc);
+      res.send(DetailConverter(doc));
     }, (e) => {
       res.status(400).send(e);
     });
@@ -87,7 +87,7 @@ router.post('/', (req, res) => {
         return res.status(404).send();
       }
   
-      res.send({todo});
+      res.send(DetailConverter(todo));
     }).catch((e) => {
       res.status(400).send();
     })
@@ -124,9 +124,10 @@ router.post('/', (req, res) => {
       if (!todo) {
         return res.status(404).send();
       }
-  
-      res.send({todo});
+     
+      res.send(DetailConverter(todo));
     }).catch((e) => {
+      console.log(e);
       res.status(400).send();
     });
   });
@@ -162,7 +163,7 @@ router.post('/', (req, res) => {
         return res.status(404).send();
       }
   
-      res.send({todo});
+      res.send(DetailConverter(todo));
     }).catch((e) => {
       res.status(400).send();
     });

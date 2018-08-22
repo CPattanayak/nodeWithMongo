@@ -5,10 +5,11 @@ var bodyParser = require('body-parser');
 var {mongoose} = require('./db/mongoose');
 var todoRouter=require('./controller/todocontroller');
 var userRoute=require('./controller/usercontroller');
+var todoListRoute=require('./controller/todolistcontroller');
 var swaggerJSDoc = require('swagger-jsdoc');
 var app = express();
 var os = require('os');
-var hostname = os.hostname();
+var hostname = 'localhost';
 const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -37,6 +38,7 @@ var options = {
 var swaggerSpec = swaggerJSDoc(options);
 
 app.use('/todos',todoRouter.router);
+app.use('/todolist',todoListRoute.router);
 app.use('/user',userRoute.router);
 
 // serve swagger
