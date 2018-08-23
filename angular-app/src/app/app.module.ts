@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
+import {TodoserviceService} from './todoservice.service';
 
 
 @NgModule({
@@ -14,9 +15,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     GridModule,
+    HttpClientModule,
     BrowserAnimationsModule
+
   ],
-  providers: [],
+  providers: [TodoserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

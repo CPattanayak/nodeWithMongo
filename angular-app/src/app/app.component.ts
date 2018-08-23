@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { customers } from './app.customers';
+import {TodoserviceService} from './todoservice.service';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 
+// @ts-ignore
 @Component({
   selector: 'app-root',
   template: `
@@ -16,16 +18,16 @@ import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
       </kendo-grid>
   `
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public gridView: GridDataResult;
   public pageSize = 10;
   public skip = 0;
   private data: Object[];
 
-  private items: any[] = customers;
+  private items: any = [] ;
 
-  constructor() {
-    this.loadItems();
+  constructor(private _dataService: TodoserviceService) {
+
   }
 
   public pageChange(event: PageChangeEvent): void {
@@ -38,5 +40,12 @@ export class AppComponent {
       data: this.items.slice(this.skip, this.skip + this.pageSize),
       total: this.items.length
     };
+  }
+
+  ngOnInit(): void {
+    this._dataService.getAll().subscribe((applicationsData) => {
+      this.items = applicationsData['todos'];
+      this.loadItems();
+    });
   }
 }
