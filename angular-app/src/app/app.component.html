@@ -1,20 +1,43 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<div class="example-wrapper container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 example-col">
+      <p>Splitter</p>
+      <kendo-splitter orientation="horizontal" style="height: 360px;">
+        <kendo-splitter-pane size="30%" min="20%">
+          <p>PanelBar</p>
+          <kendo-panelbar>
+            <kendo-panelbar-item title="Transaction menu">
+              <kendo-panelbar-item title="Todo"></kendo-panelbar-item>
+            </kendo-panelbar-item>
+          </kendo-panelbar>
+        </kendo-splitter-pane>
+
+        <kendo-splitter-pane min="40%">
+          <p>TabStrip</p>
+          <kendo-tabstrip>
+            <kendo-tabstrip-tab [title]="'TodoList'" [selected]="true">
+              <ng-template kendoTabContent>
+                <app-home></app-home>
+              </ng-template>
+            </kendo-tabstrip-tab>
+            <kendo-tabstrip-tab [title]="'TodoCreate'">
+              <ng-template kendoTabContent>
+                <p>
+                  Basketball is a sport that is played by two teams of five players on a rectangular court. The objective is to shoot a ball through a hoop 18 inches (46 cm) in diameter and mounted at a height of 10 feet (3.048 m) to backboards at each end of the court. The game was invented in 1891 by Dr. James Naismith, who would be the first basketball coach of the Kansas Jayhawks, one of the most successful programs in the game's history.
+                </p>
+              </ng-template>
+            </kendo-tabstrip-tab>
+            <kendo-tabstrip-tab [title]="'TodoUpdate'">
+              <ng-template kendoTabContent>
+                <p>
+                  Football is a family of team sports that involve, to varying degrees, kicking a ball with the foot to score a goal. Unqualified, the word football is understood to refer to whichever form of football is the most popular in the regional context in which the word appears.
+                </p>
+              </ng-template>
+            </kendo-tabstrip-tab>
+          </kendo-tabstrip>
+        </kendo-splitter-pane>
+      </kendo-splitter>
+    </div>
+  </div>
+</div>

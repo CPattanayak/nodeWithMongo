@@ -6,17 +6,22 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {TodoserviceService} from './todoservice.service';
+import { HomeComponent } from './home/home.component';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     GridModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LayoutModule
 
   ],
   providers: [TodoserviceService],
